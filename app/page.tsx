@@ -66,7 +66,7 @@ export default function HomePage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-32 w-full">
           <div className="max-w-3xl">
 
-            {/* Trust badge */}
+       
             <div className="inline-flex items-center gap-2 bg-white/8 border border-white/15 rounded-full px-3 py-1.5 text-xs sm:text-sm font-medium text-slate-300 mb-6 sm:mb-8 backdrop-blur-sm">
               <Star size={12} className="text-amber-400 fill-amber-400 flex-shrink-0" />
               <span>Built for students, by educators</span>
