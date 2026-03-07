@@ -13,7 +13,7 @@ export const siteConfig: SiteConfig = {
     description:
         "Your go-to resource for academic tools, GPA calculators, and student guidance to help you excel in your academic journey.",
     author: "StudentToolsHub Team",
-    email: "studenttoolshub@gmail.com",
+    email: "studenttoolshu0@gmail.com",
     ogImage: "/og-image.png",
     links: { twitter: "https://twitter.com/studenttoolshub" },
 };
