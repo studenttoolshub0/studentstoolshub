@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     "study tips",
     "grade calculator",
   ],
+  verification: {
+    google: "FhnjXGKco36JG0giqlrrFlXZ0rU1XM9ya0ErkZ3hcOA",
+  },
   authors: [{ name: siteConfig.author }],
   creator: siteConfig.author,
   publisher: siteConfig.name,
