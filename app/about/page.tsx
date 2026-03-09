@@ -76,7 +76,7 @@ export default function AboutPage() {
                     </h1>
                     <p className="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
                         Empowering the next generation of students with free academic tools and
-                        knowledge since 2024.
+                        knowledge .
                     </p>
                 </div>
             </section>

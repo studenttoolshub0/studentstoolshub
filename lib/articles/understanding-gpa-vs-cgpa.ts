@@ -14,12 +14,12 @@ The formula for GPA is:
 **(Total Grade Points Earned in Semester) / (Total Credit Hours Taken in Semester)**
 
 For example, if you took four 3-credit courses and got three As and one B, your total points would be (3*4) + (3*4) + (3*4) + (3*3) = 12 + 12 + 12 + 9 = 45 points. Divide 45 by the total credits (12) to get your semester GPA of 3.75. If your current GPA is lower than you'd like, see our guide on [how to improve your CGPA](/blog/how-to-improve-your-cgpa).
-
+If you are bangladeshi student use [SSC GPA CALCULATOR](https://cgpahub.com/tools/ssc-gpa-calculator) and  [HSC GPA CALCULATOR](https://cgpahub.com/tools/hsc-gpa-calculator) for intant gpa calculations.
 ---
 
 ## What is CGPA?
 
-CGPA stands for **Cumulative Grade Point Average**. As the name suggests, it is "cumulative" because it tracks your average performance across **multiple** semesters or your entire duration of study. While your GPA might fluctuate from one term to the next, your CGPA provides a stabilized view of your overall academic standing.
+CGPA stands for **Cumulative Grade Point Average**. As the name suggests, it is "cumulative" because it tracks your average performance across **multiple** semesters or your entire duration of study. While your GPA might fluctuate from one term to the next, your CGPA provides a stabilized view of your overall academic standing.You can use [Cgpa Calculator](https://cgpahub.com) for quick Cgpa calculation.
 
 ### How CGPA is Calculated
 CGPA is not simply the average of your semester GPAs. Instead, it is the average of all your grades weighted by the total credits earned throughout your degree.

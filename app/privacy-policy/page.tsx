@@ -86,7 +86,7 @@ export default function PrivacyPolicyPage() {
                     <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4 text-center">
                         Privacy <span className="bg-gradient-to-r from-indigo-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent">Policy</span>
                     </h1>
-                    <p className="text-slate-400 text-sm">Last updated: March 1, 2025</p>
+                    <p className="text-slate-400 text-sm">Last updated: March 7, 2026</p>
                 </div>
             </section>
 
