@@ -59,6 +59,7 @@ It is a myth that your major dictates your entire life.
 ## 6. Practical Considerations: Time and Cost
 
 Some majors require five or six years to complete (e.g., Architecture, certain Engineering tracks). Others have expensive lab fees or require specialized equipment.
+- **For many students, financial stability also plays a role when choosing a major. Families with limited income sometimes rely on government welfare programs to manage living and education costs. Programs such as [BISP 8171](https://subsidypk.com) provide financial assistance to eligible households, which can help students continue their studies without excessive financial pressure.
 - **Use a Study Planner:** Map out your potential four-year plan. Can you fit in a study-abroad or a double major?
 - **GPA Impact:** If you plan on going to Med School or Law School, you need a high GPA. Choosing an exceptionally "difficult" major where the average grade is a 'C' might hurt your chances of admission to professional schools later. Mastering the [best study techniques](/blog/best-study-techniques-for-university) early on can help you manage the workload.
 
