@@ -133,7 +133,7 @@ export const placeholderPosts: BlogPost[] = [
         content: timeManagementContent,
     },
     {
-        slug: "how-to-choose-the-right-major",
+        slug: "choose-the-right-major",
         title: "How to Choose the Right Major: A Step-by-Step Guide",
         description: "Making the right major decision can shape your entire career. Here's how to approach this choice thoughtfully.",
         date: "2026-02-21", author: "StudentToolsHub Team",

@@ -68,7 +68,6 @@ export const metadata: Metadata = {
     creator: "@studenttoolshub",
   },
   alternates: {
-    canonical: siteConfig.url,
     types: {
       "application/rss+xml": `${siteConfig.url}/feed.xml`,
     },

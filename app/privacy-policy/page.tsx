@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description:
         "Read the StudentToolsHub Privacy Policy. Learn how we handle your data, what information we collect, and how we protect your privacy.",
     alternates: { canonical: `${siteConfig.url}/privacy-policy` },
-    robots: { index: true, follow: false },
+    robots: { index: true, follow: true },
     openGraph: {
         title: "Privacy Policy — StudentToolsHub",
         description: "How StudentToolsHub collects, uses, and protects your information.",
