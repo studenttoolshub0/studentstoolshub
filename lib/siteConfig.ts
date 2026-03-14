@@ -4,7 +4,7 @@ import { howToImproveYourCgpaContent } from "./articles/how-to-improve-your-cgpa
 import { gpaVsCgpaContent } from "./articles/understanding-gpa-vs-cgpa";
 import { studyTechniquesContent } from "./articles/best-study-techniques-for-university";
 import { timeManagementContent } from "./articles/time-management-for-students";
-import { choosingRightMajorContent } from "./articles/how-to-choose-the-right-major";
+import { choosingRightMajorContent } from "./articles/choose-the-right-major";
 import { cgpaCalculatorGuideContent } from "./articles/cgpa-calculator-guide";
 
 export const siteConfig: SiteConfig = {
