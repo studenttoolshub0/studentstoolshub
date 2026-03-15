@@ -38,6 +38,39 @@ export default function KTUCalculator() {
     }
   }, []);
 
+  // Memoized sync function to update subjects when context changes
+  const syncSemesters = React.useCallback((newScheme: SchemeId, newBranch: BranchId) => {
+    setSemesters(prev => prev.map(sem => {
+      // Don't overwrite if in general mode
+      if (newBranch === 'general') return sem;
+      
+      const template = SUBJECT_TEMPLATES[newScheme][newBranch][sem.semesterNum] || [];
+      
+      // If template is empty and we're not in general mode, we might want to keep current subjects 
+      // but usually this means the template hasn't been added yet.
+      if (template.length === 0) return sem;
+
+      return {
+        ...sem,
+        subjects: template.map(tSub => {
+          // Try to preserve grade if same subject code exists in current state
+          const existingSub = sem.subjects.find(s => s.code === tSub.code);
+          return {
+            ...tSub,
+            grade: existingSub ? existingSub.grade : ('' as Grade)
+          };
+        })
+      };
+    }));
+  }, []);
+
+  // Effect to handle synchronization when scheme or branch changes
+  useEffect(() => {
+    if (semesters.length > 0) {
+      syncSemesters(scheme, branch);
+    }
+  }, [scheme, branch, syncSemesters]);
+
   const addSemester = (num?: number) => {
     const nextNum = num || (semesters.length > 0 ? Math.min(semesters[semesters.length - 1].semesterNum + 1, 8) : 1);
     const template = SUBJECT_TEMPLATES[scheme][branch][nextNum] || [];
@@ -48,7 +81,7 @@ export default function KTUCalculator() {
       subjects: template.map(s => ({ ...s, grade: '' as Grade }))
     };
     
-    setSemesters([...semesters, newSem]);
+    setSemesters(prev => [...prev, newSem]);
   };
 
   const removeSemester = (id: string) => {
@@ -155,18 +188,6 @@ export default function KTUCalculator() {
     }
   };
 
-  // Sync subjects when scheme or branch changes
-  const syncSemesters = (newScheme: SchemeId, newBranch: BranchId) => {
-    setSemesters(prev => prev.map(sem => {
-      if (newBranch === 'general') return sem;
-      const template = SUBJECT_TEMPLATES[newScheme][newBranch][sem.semesterNum] || [];
-      return {
-        ...sem,
-        subjects: template.map(s => ({ ...s, grade: '' as Grade }))
-      };
-    }));
-  };
-
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
       {/* Mobile Sticky Result Summary */}
@@ -195,11 +216,7 @@ export default function KTUCalculator() {
             <div className="relative">
               <select 
                 value={scheme}
-                onChange={(e) => {
-                  const newScheme = e.target.value as SchemeId;
-                  setScheme(newScheme);
-                  syncSemesters(newScheme, branch);
-                }}
+                onChange={(e) => setScheme(e.target.value as SchemeId)}
                 className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all appearance-none cursor-pointer text-sm font-bold pr-10 hover:border-slate-300"
               >
                 {SCHEMES.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
@@ -209,15 +226,11 @@ export default function KTUCalculator() {
           </div>
 
           <div className="space-y-2">
-            <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider pl-1">Program</label>
+            <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider pl-1">Study Program</label>
             <div className="relative">
               <select 
                 value={branch}
-                onChange={(e) => {
-                  const newBranch = e.target.value as BranchId;
-                  setBranch(newBranch);
-                  syncSemesters(scheme, newBranch);
-                }}
+                onChange={(e) => setBranch(e.target.value as BranchId)}
                 className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all appearance-none cursor-pointer text-sm font-bold pr-10 hover:border-slate-300"
               >
                 {BRANCHES.map(b => <option key={b.id} value={b.id}>{b.name}</option>)}

@@ -120,6 +120,7 @@ export const SUBJECT_TEMPLATES: Record<SchemeId, Record<BranchId, Record<number,
   },
   '2019': {
     cse: {
+      ...EMPTY_BRANCH_TEMPLATES,
       ...COMMON_2019_SUBJECTS,
       3: [
         { code: 'MAT 203', name: 'Discrete Mathematical Structures', credits: 4 },
@@ -179,6 +180,7 @@ export const SUBJECT_TEMPLATES: Record<SchemeId, Record<BranchId, Record<number,
       ]
     },
     me: {
+      ...EMPTY_BRANCH_TEMPLATES,
       ...COMMON_2019_SUBJECTS,
       3: [
         { code: 'MAT 201', name: 'PDE and Complex Analysis', credits: 4 },
@@ -235,6 +237,7 @@ export const SUBJECT_TEMPLATES: Record<SchemeId, Record<BranchId, Record<number,
       ],
     },
     ce: {
+      ...EMPTY_BRANCH_TEMPLATES,
       ...COMMON_2019_SUBJECTS,
       3: [
         { code: 'MAT 201', name: 'PDE and Complex Analysis', credits: 4 },
@@ -293,6 +296,7 @@ export const SUBJECT_TEMPLATES: Record<SchemeId, Record<BranchId, Record<number,
       ],
     },
     ee: {
+      ...EMPTY_BRANCH_TEMPLATES,
       ...COMMON_2019_SUBJECTS,
       3: [
         { code: 'MAT 201', name: 'PDE and Complex Analysis', credits: 4 },
@@ -351,6 +355,7 @@ export const SUBJECT_TEMPLATES: Record<SchemeId, Record<BranchId, Record<number,
       ],
     },
     ec: {
+      ...EMPTY_BRANCH_TEMPLATES,
       ...COMMON_2019_SUBJECTS,
       3: [
         { code: 'MAT 201', name: 'PDE and Complex Analysis', credits: 4 },
