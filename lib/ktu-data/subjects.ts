@@ -58,25 +58,67 @@ const SEMESTER_TWO_2019: Subject[] = [
   { code: 'PHL 120/CYL 120', name: 'Engineering Physics/Chemistry Lab', credits: 1 },
 ];
 
-// Common subjects for 2024 Scheme S1 & S2 (Simplified for demo)
-const SEMESTER_ONE_2024: Subject[] = [
-  { code: 'MAT 101', name: 'Matrices and Calculus', credits: 4 },
-  { code: 'PHT 101', name: 'Engineering Physics', credits: 4 },
-  { code: 'EST 101', name: 'Basics of Civil & Mechanical Eng', credits: 4 },
-  { code: 'EST 102', name: 'Basics of Electrical & Electronics Eng', credits: 4 },
-  { code: 'HUN 101', name: 'Language and Communication Skills', credits: 2 },
-  { code: 'PHL 101', name: 'Engineering Physics Lab', credits: 1 },
-  { code: 'ESL 101', name: 'Engineering Workshop', credits: 1 },
+// Common subjects for 2024 Scheme S1 & S2 (Groups)
+// Group A: Information Science (CSE, IT, etc.)
+const S1_2024_GROUP_A: Subject[] = [
+  { code: 'GAMAT101', name: 'Mathematics for Information Science-1', credits: 3 },
+  { code: 'GAPHT121', name: 'Physics for Information Science', credits: 4 },
+  { code: 'GMEST103', name: 'Engineering Graphics and Computer Aided Drawing', credits: 3 },
+  { code: 'GXEST104', name: 'Introduction to Electrical & Electronics Engineering', credits: 4 },
+  { code: 'UCEST105', name: 'Algorithmic Thinking with Python', credits: 4 },
+  { code: 'GXESL106', name: 'Basic Electrical and Electronics Engineering Workshop I', credits: 1 },
+  { code: 'UCSEM129', name: 'Digital 101 (NASSCOM)', credits: 1 },
 ];
 
-const SEMESTER_TWO_2024: Subject[] = [
-  { code: 'MAT 102', name: 'Differential Equations and Transforms', credits: 4 },
-  { code: 'CYT 101', name: 'Engineering Chemistry', credits: 4 },
-  { code: 'EST 103', name: 'Engineering Mechanics', credits: 3 },
-  { code: 'EST 104', name: 'Design and Engineering', credits: 3 },
-  { code: 'HUN 102', name: 'Constitution of India', credits: 2 },
-  { code: 'CYL 101', name: 'Engineering Chemistry Lab', credits: 1 },
-  { code: 'ESL 102', name: 'Computer Programming Workshop', credits: 1 },
+const S2_2024_GROUP_A: Subject[] = [
+  { code: 'GAMAT201', name: 'Mathematics for Information Science-2', credits: 3 },
+  { code: 'GXCYT122', name: 'Chemistry for Information Science', credits: 4 },
+  { code: 'GXEST203', name: 'Foundations of Computing', credits: 3 },
+  { code: 'GXEST204', name: 'Programming in C', credits: 4 },
+  { code: 'PCCST205', name: 'Discrete Mathematics', credits: 4 },
+  { code: 'UCEST206', name: 'Engineering Entrepreneurship & IPR', credits: 3 },
+  { code: 'GXESL208', name: 'IT Workshop', credits: 1 },
+];
+
+// Group B: Electrical Science (EE, EC, etc.)
+const S1_2024_GROUP_B: Subject[] = [
+  { code: 'GYMAT101', name: 'Mathematics for Electrical Science-1', credits: 4 },
+  { code: 'GBPHT121', name: 'Physics for Electrical Science', credits: 4 },
+  { code: 'GMEST103', name: 'Engineering Graphics and Computer Aided Drawing', credits: 3 },
+  { code: 'GXEST104', name: 'Introduction to Electrical & Electronics Engineering', credits: 4 },
+  { code: 'UCEST105', name: 'Algorithmic Thinking with Python', credits: 4 },
+  { code: 'GXESL106', name: 'Basic Electrical and Electronics Engineering Workshop', credits: 1 },
+  { code: 'UCSEM129', name: 'Digital 101 (NASSCOM)', credits: 1 },
+];
+
+const S2_2024_GROUP_B: Subject[] = [
+  { code: 'GYMAT201', name: 'Mathematics for Electrical Science-2', credits: 4 },
+  { code: 'GXCYT122', name: 'Chemistry for Electrical Science', credits: 4 },
+  { code: 'GYEST203', name: 'Foundations of Computing', credits: 3 },
+  { code: 'GYEST204', name: 'Programming in C', credits: 4 },
+  { code: 'UCEST206', name: 'Engineering Entrepreneurship & IPR', credits: 3 },
+  { code: 'GXESL208', name: 'IT Workshop', credits: 1 },
+  { code: 'PCXXT205', name: 'Programme Core-1', credits: 4 },
+];
+
+// Group C: Physical Science (ME, CE, etc.)
+const S1_2024_GROUP_C: Subject[] = [
+  { code: 'GYMAT101', name: 'Mathematics for Physical Science-1', credits: 3 },
+  { code: 'GCEST103', name: 'Engineering Mechanics', credits: 3 },
+  { code: 'GCEST104', name: 'Introduction to Mechanical & Civil Engineering', credits: 4 },
+  { code: 'UCEST105', name: 'Algorithmic Thinking with Python', credits: 5 },
+  { code: 'GCESL106', name: 'Engineering Workshop', credits: 1 },
+  { code: 'GZPHT121', name: 'Physics', credits: 4 },
+  { code: 'UCSEM129', name: 'Digital 101 (NASSCOM)', credits: 1 },
+];
+
+const S2_2024_GROUP_C: Subject[] = [
+  { code: 'GYMAT201', name: 'Mathematics for Physical Science-2', credits: 3 },
+  { code: 'GZEST204', name: 'Basic Electrical & Electronics Engineering', credits: 4 },
+  { code: 'GCESL208', name: 'Basic Electrical and Electronics Workshop', credits: 1 },
+  { code: 'GCEST203', name: 'Engineering Graphics and CAD', credits: 3 },
+  { code: 'UCEST206', name: 'Engineering Entrepreneurship & IPR', credits: 3 },
+  { code: 'GCCYT122', name: 'Chemistry', credits: 4 },
 ];
 
 // Common subjects for 2015 Scheme S1 & S2
@@ -111,11 +153,11 @@ const COMMON_2019_SUBJECTS = {
 
 export const SUBJECT_TEMPLATES: Record<SchemeId, Record<BranchId, Record<number, Subject[]>>> = {
   '2024': {
-    cse: { ...EMPTY_BRANCH_TEMPLATES, 1: SEMESTER_ONE_2024, 2: SEMESTER_TWO_2024 },
-    me: { ...EMPTY_BRANCH_TEMPLATES, 1: SEMESTER_ONE_2024, 2: SEMESTER_TWO_2024 },
-    ce: { ...EMPTY_BRANCH_TEMPLATES, 1: SEMESTER_ONE_2024, 2: SEMESTER_TWO_2024 },
-    ee: { ...EMPTY_BRANCH_TEMPLATES, 1: SEMESTER_ONE_2024, 2: SEMESTER_TWO_2024 },
-    ec: { ...EMPTY_BRANCH_TEMPLATES, 1: SEMESTER_ONE_2024, 2: SEMESTER_TWO_2024 },
+    cse: { ...EMPTY_BRANCH_TEMPLATES, 1: S1_2024_GROUP_A, 2: S2_2024_GROUP_A },
+    me: { ...EMPTY_BRANCH_TEMPLATES, 1: S1_2024_GROUP_C, 2: S2_2024_GROUP_C },
+    ce: { ...EMPTY_BRANCH_TEMPLATES, 1: S1_2024_GROUP_C, 2: S2_2024_GROUP_C },
+    ee: { ...EMPTY_BRANCH_TEMPLATES, 1: S1_2024_GROUP_B, 2: S2_2024_GROUP_B },
+    ec: { ...EMPTY_BRANCH_TEMPLATES, 1: S1_2024_GROUP_B, 2: S2_2024_GROUP_B },
     general: EMPTY_BRANCH_TEMPLATES,
   },
   '2019': {

@@ -46,14 +46,10 @@ export default function KTUCalculator() {
       
       const template = SUBJECT_TEMPLATES[newScheme][newBranch][sem.semesterNum] || [];
       
-      // If template is empty and we're not in general mode, we might want to keep current subjects 
-      // but usually this means the template hasn't been added yet.
-      if (template.length === 0) return sem;
-
+      // Load template subjects, preserving grades only if the subject code is identical
       return {
         ...sem,
         subjects: template.map(tSub => {
-          // Try to preserve grade if same subject code exists in current state
           const existingSub = sem.subjects.find(s => s.code === tSub.code);
           return {
             ...tSub,
