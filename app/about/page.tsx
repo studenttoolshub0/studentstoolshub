@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "About Us",
     description:
         "Learn about StudentToolsHub's mission to empower students with free academic tools, GPA calculators, and study resources for university success.",
-    alternates: { canonical: `${siteConfig.url}/about` },
+    alternates: { canonical: "/about" },
     openGraph: {
         title: "About StudentToolsHub — Our Mission & Story",
         description: "Learn about our mission to empower students with free academic tools.",

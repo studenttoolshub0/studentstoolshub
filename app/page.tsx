@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "StudentToolsHub — Free Academic Tools & GPA Guides for Students",
   description:
     "Discover free academic tools, GPA calculators, and study guides designed to help university students succeed. Explore CGPA calculators, study tips, and more.",
-  alternates: { canonical: siteConfig.url },
+  alternates: { canonical: "/" },
   openGraph: {
     title: "StudentToolsHub — Free Academic Tools & GPA Guides",
     description: "Free GPA calculators, study guides, and academic tools for university students.",

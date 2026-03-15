@@ -6,11 +6,13 @@ import {
   SUBJECT_TEMPLATES, 
   BranchId, 
   Subject, 
-  Grade 
+  Grade,
+  SCHEMES,
+  SchemeId
 } from "@/lib/ktu-data/subjects";
 import { calculateSGPA, calculateCGPA, cgpaToPercentage } from "@/lib/ktu-data/calculator";
 import GradeSelector from "./GradeSelector";
-import { Trash2, Plus, RotateCcw, Copy, Share2, Calculator, Trash } from "lucide-react";
+import { Trash2, Plus, RotateCcw, Copy, Share2, Calculator, Trash, Layout } from "lucide-react";
 
 interface SemesterState {
   id: string;
@@ -24,6 +26,7 @@ interface SemesterState {
 }
 
 export default function KTUCalculator() {
+  const [scheme, setScheme] = useState<SchemeId>("2019");
   const [branch, setBranch] = useState<BranchId>("cse");
   const [semesters, setSemesters] = useState<SemesterState[]>([]);
   const [copied, setCopied] = useState(false);
@@ -37,7 +40,7 @@ export default function KTUCalculator() {
 
   const addSemester = (num?: number) => {
     const nextNum = num || (semesters.length > 0 ? Math.min(semesters[semesters.length - 1].semesterNum + 1, 8) : 1);
-    const template = SUBJECT_TEMPLATES[branch][nextNum] || [];
+    const template = SUBJECT_TEMPLATES[scheme][branch][nextNum] || [];
     
     const newSem: SemesterState = {
       id: Math.random().toString(36).substr(2, 9),
@@ -115,16 +118,16 @@ export default function KTUCalculator() {
   };
 
   const sgpas = useMemo(() => {
-    return semesters.map(sem => calculateSGPA(sem.subjects));
-  }, [semesters]);
+    return semesters.map(sem => calculateSGPA(sem.subjects, scheme));
+  }, [semesters, scheme]);
 
   const cgpa = useMemo(() => {
-    return calculateCGPA(semesters);
-  }, [semesters]);
+    return calculateCGPA(semesters, scheme);
+  }, [semesters, scheme]);
 
   const percentage = useMemo(() => {
-    return cgpaToPercentage(cgpa);
-  }, [cgpa]);
+    return cgpaToPercentage(cgpa, scheme);
+  }, [cgpa, scheme]);
 
   const copyResult = () => {
     const text = `My KTU Result:\nCGPA: ${cgpa.toFixed(2)}\nPercentage: ${percentage}%\nCalculated using StudentToolsHub KTU Calculator`;
@@ -159,19 +162,37 @@ export default function KTUCalculator() {
         {/* Top Controls */}
         <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-wrap gap-4 items-end">
           <div className="flex-1 min-w-[200px]">
-            <label className="block text-sm font-semibold text-slate-700 mb-2">Select Program (KTU 2019 Scheme)</label>
+            <label className="block text-sm font-semibold text-slate-700 mb-2">Select Scheme</label>
+            <select 
+              value={scheme}
+              onChange={(e) => {
+                const newScheme = e.target.value as SchemeId;
+                setScheme(newScheme);
+                setSemesters(prev => prev.map(sem => {
+                    const template = SUBJECT_TEMPLATES[newScheme][branch][sem.semesterNum] || [];
+                    if (branch === 'general') return sem;
+                    return {
+                        ...sem,
+                        subjects: template.map(s => ({ ...s, grade: '' as Grade }))
+                    };
+                }));
+              }}
+              className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all appearance-none cursor-pointer"
+            >
+              {SCHEMES.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
+            </select>
+          </div>
+
+          <div className="flex-1 min-w-[200px]">
+            <label className="block text-sm font-semibold text-slate-700 mb-2">Select Program</label>
             <select 
               value={branch}
               onChange={(e) => {
                 const newBranch = e.target.value as BranchId;
                 setBranch(newBranch);
-                // Update existing semesters with the new branch's templates
-                // For 'general', we keep what's there? No, better to clear for templates, 
-                // but for general we allow them to start empty or keep current.
-                // Let's reload templates for structured branches, keep current for entering general.
                 setSemesters(prev => prev.map(sem => {
-                    const template = SUBJECT_TEMPLATES[newBranch][sem.semesterNum] || [];
-                    if (newBranch === 'general') return sem; // Don't wipe if moving to general
+                    const template = SUBJECT_TEMPLATES[scheme][newBranch][sem.semesterNum] || [];
+                    if (newBranch === 'general') return sem;
                     return {
                         ...sem,
                         subjects: template.map(s => ({ ...s, grade: '' as Grade }))
@@ -266,6 +287,7 @@ export default function KTUCalculator() {
                             <span className="md:hidden text-xs font-bold text-slate-400 uppercase min-w-[60px]">Grade:</span>
                             <GradeSelector 
                             value={sub.grade} 
+                            schemeId={scheme}
                             onChange={(val) => updateGrade(sem.id, sub.code, val)} 
                             />
                         </div>
@@ -347,7 +369,10 @@ export default function KTUCalculator() {
             </button>
             
             <p className="text-[10px] text-slate-400 text-center leading-relaxed mt-4">
-              Results are calculated based on the official KTU 2019 Scheme credit-based grading system.
+              Results are calculated based on the official <strong>KTU {scheme} Scheme</strong> credit-based grading system. 
+              {scheme === '2019' && " (Percentage = [CGPA-0.5]*10)"}
+              {scheme === '2015' && " (Percentage = [CGPA*10]-3.75)"}
+              {scheme === '2024' && " (Percentage = CGPA*10)"}
             </p>
           </div>
         </div>

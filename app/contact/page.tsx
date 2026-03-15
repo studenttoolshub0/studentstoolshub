@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Contact Us",
     description:
         "Have a question about GPA calculators, study strategies, or academic tools? Get in touch with the StudentToolsHub team — we're here to help students succeed.",
-    alternates: { canonical: `${siteConfig.url}/contact` },
+    alternates: { canonical: "/contact" },
     openGraph: {
         title: "Contact StudentToolsHub",
         description: "Get in touch with our team for GPA questions and academic guidance.",

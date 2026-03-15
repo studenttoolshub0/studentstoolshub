@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Blog — Academic Guides & Study Resources",
     description:
         "Browse academic articles, GPA guides, study tips, and student resources. Written by educators to help university students succeed.",
-    alternates: { canonical: `${siteConfig.url}/blog` },
+    alternates: { canonical: "/blog" },
     openGraph: {
         title: "StudentToolsHub Blog — Academic Guides & Study Resources",
         description: "Browse GPA guides, study tips, and student resources.",

@@ -3,6 +3,7 @@ import KTUCalculator from "@/components/ktu/KTUCalculator";
 import { siteConfig } from "@/lib/siteConfig";
 import { CheckCircle2, Info, HelpCircle, BookOpen, GraduationCap, Calculator } from "lucide-react";
 import JsonLd from "@/components/JsonLd";
+import ScrollToTop from "@/components/ktu/ScrollToTop";
 
 export const metadata: Metadata = {
   title: "KTU CGPA Calculator – Fast & Accurate GPA Calculator for Kerala Technological University Students",
@@ -12,6 +13,9 @@ export const metadata: Metadata = {
     description: "Fastest and most accurate KTU (Kerala Technological University) GPA calculator with auto-loaded subjects for all engineering branches.",
     type: "website",
     url: `${siteConfig.url}/ktu-cgpa-calculator`,
+  },
+  alternates: {
+    canonical: "/ktu-cgpa-calculator",
   },
 };
 
@@ -258,9 +262,7 @@ export default function KTUCalculatorPage() {
                         Don't let manual errors stop your progress. Use the most accurate **KTU CGPA Calculator** and stay ahead in your engineering career at **APJ Abdul Kalam Technological University**.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="bg-white text-blue-600 px-10 py-4 rounded-2xl font-black hover:bg-slate-50 transition-all shadow-lg">
-                            Back to Calculator
-                        </button>
+                        <ScrollToTop />
                     </div>
                 </div>
             </article>
