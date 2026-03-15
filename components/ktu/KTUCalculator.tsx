@@ -253,18 +253,12 @@ export default function KTUCalculator() {
                     <div className="col-span-1 text-center">
                       <div className="flex items-center gap-2 justify-center">
                         <span className="md:hidden text-xs font-bold text-slate-400 uppercase">Credits:</span>
-                        {branch === 'general' || sub.code.startsWith('CUSTOM-') ? (
-                          <input 
-                             type="number"
-                             value={sub.credits}
-                             onChange={(e) => updateSubject(sem.id, sub.code, 'credits', parseFloat(e.target.value) || 0)}
-                             className="w-12 bg-slate-100 text-center rounded text-xs font-bold py-1 outline-none focus:ring-1 focus:ring-blue-500"
-                          />
-                        ) : (
-                          <span className="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-bold">
-                            {sub.credits}
-                          </span>
-                        )}
+                        <input 
+                            type="number"
+                            value={sub.credits}
+                            onChange={(e) => updateSubject(sem.id, sub.code, 'credits', parseFloat(e.target.value) || 0)}
+                            className="w-12 bg-slate-100 text-center rounded text-xs font-bold py-1 outline-none focus:ring-1 focus:ring-blue-500 transition-all border border-transparent hover:border-slate-300"
+                        />
                       </div>
                     </div>
                     <div className="col-span-1 md:col-span-3 flex items-center gap-2">
