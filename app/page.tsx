@@ -96,7 +96,7 @@ export default function HomePage() {
                 Explore Resources <ArrowRight size={15} />
               </Link>
               <a
-                href="https://cgpahub.com"
+                href="/blog"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-white/8 border border-white/20 text-white font-semibold px-5 sm:px-7 py-3 sm:py-3.5 rounded-xl hover:bg-white/15 transition-all duration-200 text-sm backdrop-blur-sm"
