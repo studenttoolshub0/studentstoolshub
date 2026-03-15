@@ -155,12 +155,24 @@ export default function KTUCalculator() {
     }
   };
 
+  // Sync subjects when scheme or branch changes
+  const syncSemesters = (newScheme: SchemeId, newBranch: BranchId) => {
+    setSemesters(prev => prev.map(sem => {
+      if (newBranch === 'general') return sem;
+      const template = SUBJECT_TEMPLATES[newScheme][newBranch][sem.semesterNum] || [];
+      return {
+        ...sem,
+        subjects: template.map(s => ({ ...s, grade: '' as Grade }))
+      };
+    }));
+  };
+
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
       {/* Mobile Sticky Result Summary */}
-      <div className="lg:hidden sticky top-16 z-30 bg-white/80 backdrop-blur-md border-b border-slate-200 px-4 py-3 flex justify-between items-center shadow-sm -mx-4 sm:mx-0 sm:rounded-b-2xl">
+      <div className="lg:hidden sticky top-16 z-30 bg-white/80 backdrop-blur-md border-b border-slate-200 px-4 py-3 flex justify-between items-center shadow-lg -mx-4 sm:mx-0 sm:rounded-b-2xl">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white">
+          <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white shadow-md">
             <Calculator size={16} />
           </div>
           <div>
@@ -175,25 +187,18 @@ export default function KTUCalculator() {
       </div>
 
       {/* Configuration & Input Section */}
-      <div className="lg:col-span-8 space-y-8">
+      <div className="lg:col-span-8 space-y-6 sm:space-y-8">
         {/* Top Controls */}
         <div className="bg-white p-4 sm:p-6 rounded-2xl border border-slate-200 shadow-sm grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-wrap gap-4 items-end">
           <div className="space-y-2">
-            <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider">Scheme</label>
+            <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider pl-1">Scheme</label>
             <div className="relative">
               <select 
                 value={scheme}
                 onChange={(e) => {
                   const newScheme = e.target.value as SchemeId;
                   setScheme(newScheme);
-                  setSemesters(prev => prev.map(sem => {
-                      if (branch === 'general') return sem;
-                      const template = SUBJECT_TEMPLATES[newScheme][branch][sem.semesterNum] || [];
-                      return {
-                          ...sem,
-                          subjects: template.map(s => ({ ...s, grade: '' as Grade }))
-                      };
-                  }));
+                  syncSemesters(newScheme, branch);
                 }}
                 className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all appearance-none cursor-pointer text-sm font-bold pr-10 hover:border-slate-300"
               >
@@ -204,21 +209,14 @@ export default function KTUCalculator() {
           </div>
 
           <div className="space-y-2">
-            <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider">Program</label>
+            <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider pl-1">Program</label>
             <div className="relative">
               <select 
                 value={branch}
                 onChange={(e) => {
                   const newBranch = e.target.value as BranchId;
                   setBranch(newBranch);
-                  setSemesters(prev => prev.map(sem => {
-                      if (newBranch === 'general') return sem;
-                      const template = SUBJECT_TEMPLATES[scheme][newBranch][sem.semesterNum] || [];
-                      return {
-                          ...sem,
-                          subjects: template.map(s => ({ ...s, grade: '' as Grade }))
-                      };
-                  }));
+                  syncSemesters(scheme, newBranch);
                 }}
                 className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all appearance-none cursor-pointer text-sm font-bold pr-10 hover:border-slate-300"
               >
@@ -241,7 +239,7 @@ export default function KTUCalculator() {
               onClick={resetAll}
               className="flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-4 py-3 rounded-xl transition-all text-sm"
             >
-              <RotateCcw size={18} /> Reset
+              <RotateCcw size={18} /> <span className="whitespace-nowrap">Reset All</span>
             </button>
           </div>
         </div>
