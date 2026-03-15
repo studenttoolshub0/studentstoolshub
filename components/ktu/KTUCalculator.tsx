@@ -10,7 +10,7 @@ import {
 } from "@/lib/ktu-data/subjects";
 import { calculateSGPA, calculateCGPA, cgpaToPercentage } from "@/lib/ktu-data/calculator";
 import GradeSelector from "./GradeSelector";
-import { Trash2, Plus, RotateCcw, Copy, Share2, Calculator } from "lucide-react";
+import { Trash2, Plus, RotateCcw, Copy, Share2, Calculator, Trash } from "lucide-react";
 
 interface SemesterState {
   id: string;
@@ -73,6 +73,47 @@ export default function KTUCalculator() {
     })));
   };
 
+  const addCustomSubject = (semId: string) => {
+    setSemesters(prev => prev.map(sem => {
+      if (sem.id === semId) {
+        return {
+          ...sem,
+          subjects: [
+            ...sem.subjects,
+            { code: `CUSTOM-${Date.now()}`, name: "Custom Subject", credits: 3, grade: "" as Grade }
+          ]
+        };
+      }
+      return sem;
+    }));
+  };
+
+  const updateSubject = (semId: string, subjectCode: string, field: keyof Subject, value: string | number) => {
+    setSemesters(prev => prev.map(sem => {
+      if (sem.id === semId) {
+        return {
+          ...sem,
+          subjects: sem.subjects.map(sub => 
+            sub.code === subjectCode ? { ...sub, [field]: value } : sub
+          )
+        };
+      }
+      return sem;
+    }));
+  };
+
+  const removeSubject = (semId: string, subjectCode: string) => {
+    setSemesters(prev => prev.map(sem => {
+      if (sem.id === semId) {
+        return {
+          ...sem,
+          subjects: sem.subjects.filter(sub => sub.code !== subjectCode)
+        };
+      }
+      return sem;
+    }));
+  };
+
   const sgpas = useMemo(() => {
     return semesters.map(sem => calculateSGPA(sem.subjects));
   }, [semesters]);
@@ -122,8 +163,20 @@ export default function KTUCalculator() {
             <select 
               value={branch}
               onChange={(e) => {
-                setBranch(e.target.value as BranchId);
-                setSemesters([]);
+                const newBranch = e.target.value as BranchId;
+                setBranch(newBranch);
+                // Update existing semesters with the new branch's templates
+                // For 'general', we keep what's there? No, better to clear for templates, 
+                // but for general we allow them to start empty or keep current.
+                // Let's reload templates for structured branches, keep current for entering general.
+                setSemesters(prev => prev.map(sem => {
+                    const template = SUBJECT_TEMPLATES[newBranch][sem.semesterNum] || [];
+                    if (newBranch === 'general') return sem; // Don't wipe if moving to general
+                    return {
+                        ...sem,
+                        subjects: template.map(s => ({ ...s, grade: '' as Grade }))
+                    };
+                }));
               }}
               className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all appearance-none cursor-pointer"
             >
@@ -180,30 +233,71 @@ export default function KTUCalculator() {
               
               <div className="space-y-3">
                 {sem.subjects.map((sub) => (
-                  <div key={sub.code} className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-4 items-center p-3 hover:bg-slate-50 rounded-xl transition-colors border border-transparent hover:border-slate-100">
+                  <div key={sub.code} className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-4 items-center p-3 hover:bg-slate-50 rounded-xl transition-colors border border-transparent hover:border-slate-100 group">
                     <div className="col-span-1 md:col-span-8">
-                      <p className="font-bold text-slate-900 text-sm">{sub.name}</p>
-                      <p className="text-[10px] text-slate-500 font-mono uppercase">{sub.code}</p>
-                    </div>
-                    <div className="col-span-1 text-center hidden md:block">
-                      <span className="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-bold">
-                        {sub.credits}
-                      </span>
-                    </div>
-                    <div className="col-span-1 md:col-span-3">
-                      <div className="flex items-center gap-2 md:block">
-                        <span className="md:hidden text-xs font-bold text-slate-400 uppercase min-w-[60px]">Grade:</span>
-                        <GradeSelector 
-                          value={sub.grade} 
-                          onChange={(val) => updateGrade(sem.id, sub.code, val)} 
+                      {branch === 'general' || sub.code.startsWith('CUSTOM-') ? (
+                        <input 
+                          type="text"
+                          value={sub.name}
+                          onChange={(e) => updateSubject(sem.id, sub.code, 'name', e.target.value)}
+                          placeholder="Subject Name"
+                          className="w-full bg-transparent border-b border-dashed border-slate-300 focus:border-blue-500 outline-none font-bold text-slate-900 text-sm py-1"
                         />
+                      ) : (
+                        <>
+                          <p className="font-bold text-slate-900 text-sm">{sub.name}</p>
+                          <p className="text-[10px] text-slate-500 font-mono uppercase">{sub.code}</p>
+                        </>
+                      )}
+                    </div>
+                    <div className="col-span-1 text-center">
+                      <div className="flex items-center gap-2 justify-center">
+                        <span className="md:hidden text-xs font-bold text-slate-400 uppercase">Credits:</span>
+                        {branch === 'general' || sub.code.startsWith('CUSTOM-') ? (
+                          <input 
+                             type="number"
+                             value={sub.credits}
+                             onChange={(e) => updateSubject(sem.id, sub.code, 'credits', parseFloat(e.target.value) || 0)}
+                             className="w-12 bg-slate-100 text-center rounded text-xs font-bold py-1 outline-none focus:ring-1 focus:ring-blue-500"
+                          />
+                        ) : (
+                          <span className="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-bold">
+                            {sub.credits}
+                          </span>
+                        )}
                       </div>
+                    </div>
+                    <div className="col-span-1 md:col-span-3 flex items-center gap-2">
+                        <div className="flex-1 flex items-center gap-2 md:block">
+                            <span className="md:hidden text-xs font-bold text-slate-400 uppercase min-w-[60px]">Grade:</span>
+                            <GradeSelector 
+                            value={sub.grade} 
+                            onChange={(val) => updateGrade(sem.id, sub.code, val)} 
+                            />
+                        </div>
+                        {(branch === 'general' || sub.code.startsWith('CUSTOM-')) && (
+                             <button 
+                                onClick={() => removeSubject(sem.id, sub.code)}
+                                className="md:opacity-0 group-hover:opacity-100 p-1.5 text-slate-300 hover:text-red-500 transition-all"
+                             >
+                                <Trash2 size={14} />
+                             </button>
+                        )}
                     </div>
                   </div>
                 ))}
               </div>
               
-              {sem.subjects.length === 0 && (
+              <div className="mt-4 flex justify-center">
+                <button 
+                  onClick={() => addCustomSubject(sem.id)}
+                  className="flex items-center gap-2 text-xs font-bold text-blue-600 hover:text-blue-700 bg-blue-50 hover:bg-blue-100 px-4 py-2 rounded-lg transition-all"
+                >
+                  <Plus size={14} /> Add Subject
+                </button>
+              </div>
+
+              {sem.subjects.length === 0 && branch !== 'general' && (
                 <div className="text-center py-8">
                   <p className="text-slate-400 text-sm">No subjects available for this semester template.</p>
                 </div>

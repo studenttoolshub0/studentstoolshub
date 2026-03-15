@@ -23,6 +23,7 @@ export const BRANCHES = [
   { id: 'ce', name: 'B.Tech Civil' },
   { id: 'ee', name: 'B.Tech Electrical' },
   { id: 'ec', name: 'B.Tech Electronics' },
+  { id: 'general', name: 'General / Custom KTU Calculator' },
 ] as const;
 
 export type BranchId = typeof BRANCHES[number]['id'];
@@ -343,4 +344,7 @@ export const SUBJECT_TEMPLATES: Record<BranchId, Record<number, Subject[]>> = {
       { code: 'ECD 416', name: 'Project Phase II', credits: 4 },
     ],
   },
+  general: {
+    1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [],
+  }
 };
