@@ -12,7 +12,7 @@ import {
 } from "@/lib/ktu-data/subjects";
 import { calculateSGPA, calculateCGPA, cgpaToPercentage } from "@/lib/ktu-data/calculator";
 import GradeSelector from "./GradeSelector";
-import { Trash2, Plus, RotateCcw, Copy, Share2, Calculator, Trash, Layout } from "lucide-react";
+import { Trash2, Plus, RotateCcw, Copy, Share2, Calculator, Trash, Layout, ChevronDown } from "lucide-react";
 
 interface SemesterState {
   id: string;
@@ -157,70 +157,93 @@ export default function KTUCalculator() {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      {/* Mobile Sticky Result Summary */}
+      <div className="lg:hidden sticky top-16 z-30 bg-white/80 backdrop-blur-md border-b border-slate-200 px-4 py-3 flex justify-between items-center shadow-sm -mx-4 sm:mx-0 sm:rounded-b-2xl">
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white">
+            <Calculator size={16} />
+          </div>
+          <div>
+            <p className="text-[10px] font-black text-slate-400 uppercase leading-none">Your CGPA</p>
+            <p className="text-lg font-black text-slate-900">{cgpa.toFixed(2)}</p>
+          </div>
+        </div>
+        <div className="text-right">
+          <p className="text-[10px] font-black text-slate-400 uppercase leading-none text-right">Percentage</p>
+          <p className="text-lg font-black text-blue-600 text-right">{percentage}%</p>
+        </div>
+      </div>
+
       {/* Configuration & Input Section */}
       <div className="lg:col-span-8 space-y-8">
         {/* Top Controls */}
-        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-wrap gap-4 items-end">
-          <div className="flex-1 min-w-[200px]">
-            <label className="block text-sm font-semibold text-slate-700 mb-2">Select Scheme</label>
-            <select 
-              value={scheme}
-              onChange={(e) => {
-                const newScheme = e.target.value as SchemeId;
-                setScheme(newScheme);
-                // Update existing semesters with new scheme's templates
-                setSemesters(prev => prev.map(sem => {
-                    if (branch === 'general') return sem;
-                    const template = SUBJECT_TEMPLATES[newScheme][branch][sem.semesterNum] || [];
-                    return {
-                        ...sem,
-                        subjects: template.map(s => ({ ...s, grade: '' as Grade }))
-                    };
-                }));
-              }}
-              className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all appearance-none cursor-pointer"
-            >
-              {SCHEMES.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
-            </select>
+        <div className="bg-white p-4 sm:p-6 rounded-2xl border border-slate-200 shadow-sm grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-wrap gap-4 items-end">
+          <div className="space-y-2">
+            <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider">Scheme</label>
+            <div className="relative">
+              <select 
+                value={scheme}
+                onChange={(e) => {
+                  const newScheme = e.target.value as SchemeId;
+                  setScheme(newScheme);
+                  setSemesters(prev => prev.map(sem => {
+                      if (branch === 'general') return sem;
+                      const template = SUBJECT_TEMPLATES[newScheme][branch][sem.semesterNum] || [];
+                      return {
+                          ...sem,
+                          subjects: template.map(s => ({ ...s, grade: '' as Grade }))
+                      };
+                  }));
+                }}
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all appearance-none cursor-pointer text-sm font-bold pr-10 hover:border-slate-300"
+              >
+                {SCHEMES.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
+              </select>
+              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" size={16} />
+            </div>
           </div>
 
-          <div className="flex-1 min-w-[200px]">
-            <label className="block text-sm font-semibold text-slate-700 mb-2">Select Program</label>
-            <select 
-              value={branch}
-              onChange={(e) => {
-                const newBranch = e.target.value as BranchId;
-                setBranch(newBranch);
-                // Force update semesters when branch changes
-                setSemesters(prev => prev.map(sem => {
-                    if (newBranch === 'general') return sem;
-                    const template = SUBJECT_TEMPLATES[scheme][newBranch][sem.semesterNum] || [];
-                    return {
-                        ...sem,
-                        subjects: template.map(s => ({ ...s, grade: '' as Grade }))
-                    };
-                }));
-              }}
-              className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all appearance-none cursor-pointer"
-            >
-              {BRANCHES.map(b => <option key={b.id} value={b.id}>{b.name}</option>)}
-            </select>
+          <div className="space-y-2">
+            <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider">Program</label>
+            <div className="relative">
+              <select 
+                value={branch}
+                onChange={(e) => {
+                  const newBranch = e.target.value as BranchId;
+                  setBranch(newBranch);
+                  setSemesters(prev => prev.map(sem => {
+                      if (newBranch === 'general') return sem;
+                      const template = SUBJECT_TEMPLATES[scheme][newBranch][sem.semesterNum] || [];
+                      return {
+                          ...sem,
+                          subjects: template.map(s => ({ ...s, grade: '' as Grade }))
+                      };
+                  }));
+                }}
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all appearance-none cursor-pointer text-sm font-bold pr-10 hover:border-slate-300"
+              >
+                {BRANCHES.map(b => <option key={b.id} value={b.id}>{b.name}</option>)}
+              </select>
+              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" size={16} />
+            </div>
           </div>
           
-          <button 
-            onClick={() => addSemester()}
-            disabled={semesters.length >= 8}
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-2.5 rounded-xl transition-all shadow-lg shadow-blue-500/20 disabled:bg-slate-300 disabled:shadow-none"
-          >
-            <Plus size={18} /> Add Semester
-          </button>
-          
-          <button 
-            onClick={resetAll}
-            className="flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-6 py-2.5 rounded-xl transition-all"
-          >
-            <RotateCcw size={18} /> Reset
-          </button>
+          <div className="grid grid-cols-2 gap-3 sm:flex lg:flex">
+            <button 
+              onClick={() => addSemester()}
+              disabled={semesters.length >= 8}
+              className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-3 rounded-xl transition-all shadow-lg shadow-blue-500/20 disabled:bg-slate-300 disabled:shadow-none text-sm"
+            >
+              <Plus size={18} /> <span className="whitespace-nowrap">Add Sem</span>
+            </button>
+            
+            <button 
+              onClick={resetAll}
+              className="flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-4 py-3 rounded-xl transition-all text-sm"
+            >
+              <RotateCcw size={18} /> Reset
+            </button>
+          </div>
         </div>
 
         {/* Semesters */}
@@ -256,51 +279,54 @@ export default function KTUCalculator() {
               
               <div className="space-y-3">
                 {sem.subjects.map((sub) => (
-                  <div key={sub.code} className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-4 items-center p-3 hover:bg-slate-50 rounded-xl transition-colors border border-transparent hover:border-slate-100 group">
-                    <div className="col-span-1 md:col-span-8">
+                  <div key={sub.code} className="p-3 sm:p-4 hover:bg-slate-50 rounded-2xl transition-all border border-transparent hover:border-slate-100 group space-y-3 md:space-y-0 md:grid md:grid-cols-12 md:gap-4 md:items-center">
+                    <div className="md:col-span-7">
                       {branch === 'general' || sub.code.startsWith('CUSTOM-') ? (
-                        <input 
-                          type="text"
-                          value={sub.name}
-                          onChange={(e) => updateSubject(sem.id, sub.code, 'name', e.target.value)}
-                          placeholder="Subject Name"
-                          className="w-full bg-transparent border-b border-dashed border-slate-300 focus:border-blue-500 outline-none font-bold text-slate-900 text-sm py-1"
-                        />
+                        <div className="flex items-center gap-2">
+                          <input 
+                            type="text"
+                            value={sub.name}
+                            onChange={(e) => updateSubject(sem.id, sub.code, 'name', e.target.value)}
+                            placeholder="Subject Name"
+                            className="flex-1 bg-transparent border-b border-dashed border-slate-200 focus:border-blue-500 outline-none font-bold text-slate-900 text-sm py-1"
+                          />
+                          <button 
+                            onClick={() => removeSubject(sem.id, sub.code)}
+                            className="text-slate-300 hover:text-red-500 transition-all p-1"
+                          >
+                            <Trash2 size={14} />
+                          </button>
+                        </div>
                       ) : (
-                        <>
-                          <p className="font-bold text-slate-900 text-sm">{sub.name}</p>
-                          <p className="text-[10px] text-slate-500 font-mono uppercase">{sub.code}</p>
-                        </>
+                        <div className="flex justify-between items-start">
+                          <div>
+                            <p className="font-bold text-slate-900 text-[13px] sm:text-sm leading-tight">{sub.name}</p>
+                            <p className="text-[10px] text-slate-400 font-mono uppercase mt-0.5">{sub.code}</p>
+                          </div>
+                        </div>
                       )}
                     </div>
-                    <div className="col-span-1 text-center">
-                      <div className="flex items-center gap-2 justify-center">
-                        <span className="md:hidden text-xs font-bold text-slate-400 uppercase">Credits:</span>
-                        <input 
-                            type="number"
-                            value={sub.credits}
-                            onChange={(e) => updateSubject(sem.id, sub.code, 'credits', parseFloat(e.target.value) || 0)}
-                            className="w-12 bg-slate-100 text-center rounded text-xs font-bold py-1 outline-none focus:ring-1 focus:ring-blue-500 transition-all border border-transparent hover:border-slate-300"
-                        />
-                      </div>
-                    </div>
-                    <div className="col-span-1 md:col-span-3 flex items-center gap-2">
-                        <div className="flex-1 flex items-center gap-2 md:block">
-                            <span className="md:hidden text-xs font-bold text-slate-400 uppercase min-w-[60px]">Grade:</span>
-                            <GradeSelector 
-                            value={sub.grade} 
-                            schemeId={scheme}
-                            onChange={(val) => updateGrade(sem.id, sub.code, val)} 
-                            />
+                    
+                    <div className="flex items-center gap-4 md:col-span-5">
+                      <div className="flex-1 flex flex-col md:flex-row md:items-center gap-1 sm:gap-4">
+                        <div className="flex items-center justify-between md:justify-center gap-2 bg-slate-100/50 p-2 md:p-0 rounded-xl md:bg-transparent">
+                          <span className="md:hidden text-[10px] font-black text-slate-400 uppercase tracking-tighter">Credits</span>
+                          <input 
+                              type="number"
+                              value={sub.credits}
+                              onChange={(e) => updateSubject(sem.id, sub.code, 'credits', parseFloat(e.target.value) || 0)}
+                              className="w-10 sm:w-12 bg-white md:bg-slate-100 text-center rounded-lg text-xs font-bold py-1.5 outline-none focus:ring-2 focus:ring-blue-500 transition-all border border-slate-200 md:border-transparent"
+                          />
                         </div>
-                        {(branch === 'general' || sub.code.startsWith('CUSTOM-')) && (
-                             <button 
-                                onClick={() => removeSubject(sem.id, sub.code)}
-                                className="md:opacity-0 group-hover:opacity-100 p-1.5 text-slate-300 hover:text-red-500 transition-all"
-                             >
-                                <Trash2 size={14} />
-                             </button>
-                        )}
+                        
+                        <div className="flex-1">
+                           <GradeSelector 
+                            value={sub.grade} 
+                            schemeId={scheme} 
+                            onChange={(val) => updateGrade(sem.id, sub.code, val)} 
+                          />
+                        </div>
+                      </div>
                     </div>
                   </div>
                 ))}
