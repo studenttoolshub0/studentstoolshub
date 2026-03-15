@@ -168,9 +168,10 @@ export default function KTUCalculator() {
               onChange={(e) => {
                 const newScheme = e.target.value as SchemeId;
                 setScheme(newScheme);
+                // Update existing semesters with new scheme's templates
                 setSemesters(prev => prev.map(sem => {
-                    const template = SUBJECT_TEMPLATES[newScheme][branch][sem.semesterNum] || [];
                     if (branch === 'general') return sem;
+                    const template = SUBJECT_TEMPLATES[newScheme][branch][sem.semesterNum] || [];
                     return {
                         ...sem,
                         subjects: template.map(s => ({ ...s, grade: '' as Grade }))
@@ -190,9 +191,10 @@ export default function KTUCalculator() {
               onChange={(e) => {
                 const newBranch = e.target.value as BranchId;
                 setBranch(newBranch);
+                // Force update semesters when branch changes
                 setSemesters(prev => prev.map(sem => {
-                    const template = SUBJECT_TEMPLATES[scheme][newBranch][sem.semesterNum] || [];
                     if (newBranch === 'general') return sem;
+                    const template = SUBJECT_TEMPLATES[scheme][newBranch][sem.semesterNum] || [];
                     return {
                         ...sem,
                         subjects: template.map(s => ({ ...s, grade: '' as Grade }))
@@ -370,9 +372,9 @@ export default function KTUCalculator() {
             
             <p className="text-[10px] text-slate-400 text-center leading-relaxed mt-4">
               Results are calculated based on the official <strong>KTU {scheme} Scheme</strong> credit-based grading system. 
-              {scheme === '2019' && " (Percentage = [CGPA-0.5]*10)"}
-              {scheme === '2015' && " (Percentage = [CGPA*10]-3.75)"}
-              {scheme === '2024' && " (Percentage = CGPA*10)"}
+              {scheme === '2019' && " (Percentage = [CGPA - 0.5] × 10)"}
+              {scheme === '2015' && " (Percentage = [CGPA × 10] - 3.75)"}
+              {scheme === '2024' && " (Percentage = CGPA × 10)"}
             </p>
           </div>
         </div>

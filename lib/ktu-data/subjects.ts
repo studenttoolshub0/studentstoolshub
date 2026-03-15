@@ -111,11 +111,11 @@ const COMMON_2019_SUBJECTS = {
 
 export const SUBJECT_TEMPLATES: Record<SchemeId, Record<BranchId, Record<number, Subject[]>>> = {
   '2024': {
-    cse: { 1: SEMESTER_ONE_2024, 2: SEMESTER_TWO_2024, 3: [], 4: [], 5: [], 6: [], 7: [], 8: [] },
-    me: { 1: SEMESTER_ONE_2024, 2: SEMESTER_TWO_2024, 3: [], 4: [], 5: [], 6: [], 7: [], 8: [] },
-    ce: { 1: SEMESTER_ONE_2024, 2: SEMESTER_TWO_2024, 3: [], 4: [], 5: [], 6: [], 7: [], 8: [] },
-    ee: { 1: SEMESTER_ONE_2024, 2: SEMESTER_TWO_2024, 3: [], 4: [], 5: [], 6: [], 7: [], 8: [] },
-    ec: { 1: SEMESTER_ONE_2024, 2: SEMESTER_TWO_2024, 3: [], 4: [], 5: [], 6: [], 7: [], 8: [] },
+    cse: { ...EMPTY_BRANCH_TEMPLATES, 1: SEMESTER_ONE_2024, 2: SEMESTER_TWO_2024 },
+    me: { ...EMPTY_BRANCH_TEMPLATES, 1: SEMESTER_ONE_2024, 2: SEMESTER_TWO_2024 },
+    ce: { ...EMPTY_BRANCH_TEMPLATES, 1: SEMESTER_ONE_2024, 2: SEMESTER_TWO_2024 },
+    ee: { ...EMPTY_BRANCH_TEMPLATES, 1: SEMESTER_ONE_2024, 2: SEMESTER_TWO_2024 },
+    ec: { ...EMPTY_BRANCH_TEMPLATES, 1: SEMESTER_ONE_2024, 2: SEMESTER_TWO_2024 },
     general: EMPTY_BRANCH_TEMPLATES,
   },
   '2019': {
@@ -416,10 +416,10 @@ export const SUBJECT_TEMPLATES: Record<SchemeId, Record<BranchId, Record<number,
       1: SEMESTER_ONE_2015,
       2: SEMESTER_TWO_2015,
     },
-    me: { 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [] },
-    ce: { 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [] },
-    ee: { 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [] },
-    ec: { 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [] },
+    me: { ...EMPTY_BRANCH_TEMPLATES, 1: SEMESTER_ONE_2015, 2: SEMESTER_TWO_2015 },
+    ce: { ...EMPTY_BRANCH_TEMPLATES, 1: SEMESTER_ONE_2015, 2: SEMESTER_TWO_2015 },
+    ee: { ...EMPTY_BRANCH_TEMPLATES, 1: SEMESTER_ONE_2015, 2: SEMESTER_TWO_2015 },
+    ec: { ...EMPTY_BRANCH_TEMPLATES, 1: SEMESTER_ONE_2015, 2: SEMESTER_TWO_2015 },
     general: EMPTY_BRANCH_TEMPLATES,
   }
 };
