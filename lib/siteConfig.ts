@@ -20,12 +20,21 @@ export const siteConfig: SiteConfig = {
 
 export const navItems: NavItem[] = [
     { label: "Home", href: "/" },
+    { label: "KTU Calculator", href: "/ktu-cgpa-calculator" },
     { label: "Blog", href: "/blog" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
 ];
 
 export const academicTools: Tool[] = [
+    {
+        name: "KTU CGPA Calculator",
+        description: "Calculate your KTU SGPA and CGPA instantly with auto-loaded subject templates for all 2019 scheme branches.",
+        href: "/ktu-cgpa-calculator",
+        icon: GraduationCap,
+        external: false,
+        nofollow: false,
+    },
     {
         name: "CGPA Hub",
         description: "Cgpahub is a central hub for all academic calculators like cgpa,sgpa,universities specific calculators and more. Our top recommendation for students.",

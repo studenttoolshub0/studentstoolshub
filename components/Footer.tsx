@@ -53,6 +53,7 @@ export default function Footer() {
                         <h3 className="text-xs font-semibold text-white uppercase tracking-widest mb-4">Resources</h3>
                         <ul className="space-y-2.5">
                             {[
+                                { label: "KTU CGPA Calculator", href: "/ktu-cgpa-calculator", internal: true },
                                 { label: "Privacy Policy", href: "/privacy-policy", internal: true },
                                 { label: "Blog & Guides", href: "/blog", internal: true },
                             ].map(({ label, href, internal }) => (
