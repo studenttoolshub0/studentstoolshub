@@ -48,7 +48,7 @@ Asking questions and participating in discussions not only helps you understand 
 ## 4. Academic Planning and Tracking
 
 ### Use a CGPA Calculator
-You cannot manage what you do not measure. Use a reliable [CGPA Calculator](https://cgpahub.com) to track your progress. Plug in your current grades and experiment with "What-If" scenarios. For example, "What GPA do I need this semester to hit a 3.5 total?" This creates a clear target to aim for.
+You cannot manage what you do not measure. Use a reliable [CGPA Calculator](https://cgpahub.com) to track your progress. If you are a student at APJ Abdul Kalam Technological University, our specialized [KTU CGPA Calculator](/ktu-cgpa-calculator) is pre-loaded with your syllabus for maximum accuracy. Plug in your current grades and experiment with "What-If" scenarios. For example, "What GPA do I need this semester to hit a 3.5 total?" This creates a clear target to aim for.
 
 ### Set Realistic Goals
 Don't expect to go from a 2.0 to a 4.0 in one semester. Set incremental goals. Aim to improve your GPA by 0.2 or 0.3 each term. Small, consistent wins lead to massive long-term success.

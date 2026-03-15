@@ -7,7 +7,7 @@ In the modern academic landscape, staying informed about your Cumulative Grade P
 
 ## 1. What is a CGPA Calculator?
 
-A CGPA calculator is a digital tool that allows students to input their credit hours and grades for multiple semesters to determine their overall average. Unlike a simple GPA calculator which looks at a single term, a CGPA calculator provides the "big picture."
+A CGPA calculator is a digital tool that allows students to input their credit hours and grades for multiple semesters to determine their overall average. Unlike a simple GPA calculator which looks at a single term, a CGPA calculator provides the "big picture." Some universities have specific credit systems, such as the [KTU B.Tech 2019 Scheme](/ktu-cgpa-calculator), which requires specialized tools for accurate results.
 
 ### Why You Shouldn't Do It Manually
 While the formula for CGPA is straightforward—Total Points divided by Total Credits—it becomes complex as you add more semesters. A single mistake in credit weighting can throw off your entire calculation. Online tools like [CGPA Hub](https://cgpahub.com) or our [GPA Calculator](/) ensure 100% accuracy. If you're confused about the terminology, our [GPA vs CGPA guide](/blog/understanding-gpa-vs-cgpa) explains everything.

@@ -63,7 +63,7 @@ Titles like *Summa Cum Laude* or *First Class Honors* are typically awarded base
 High-credit years (typically late freshman to sophomore year) have the biggest impact on your CGPA. As you progress toward your senior year and accumulate more credits, it becomes mathematically harder to move your CGPA significantly. This is why a strong start is crucial!
 
 ### Tracking Your Success
-You should never be surprised by your grades mid-semester. Use tools like a [GPA Calculator](/) to stay on top of your current term, and a dedicated [CGPA Hub](https://cgpahub.com) to see the bigger picture. By following our [CGPA Calculator Guide](/blog/cgpa-calculator-guide), you can see exactly how a single 'B' might impact your dream of a 3.8 total.
+You should never be surprised by your grades mid-semester. Use tools like a [GPA Calculator](/) to stay on top of your current term, and a dedicated [CGPA Hub](https://cgpahub.com) to see the bigger picture. For KTU engineering students, we recommend using the [KTU GPA Tool](/ktu-cgpa-calculator) to auto-load subjects based on the 2019 scheme. By following our [CGPA Calculator Guide](/blog/cgpa-calculator-guide), you can see exactly how a single 'B' might impact your dream of a 3.8 total.
 
 ## Conclusion
 
