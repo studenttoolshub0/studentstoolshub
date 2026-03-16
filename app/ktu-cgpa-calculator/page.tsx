@@ -6,7 +6,7 @@ import JsonLd from "@/components/JsonLd";
 import ScrollToTop from "@/components/ktu/ScrollToTop";
 
 export const metadata: Metadata = {
-  title: "KTU CGPA Calculator – Fast & Accurate GPA Calculator for Kerala Technological University Students",
+  title: "KTU CGPA Calculator - Fast & Accurate GPA Calculator for Kerala Technological University Students",
   description: "Use our accurate KTU CGPA Calculator (2019 Scheme) to calculate SGPA and CGPA instantly for Kerala Technological University. Pre-loaded subjects for CSE, ME, CE, EE, EC.",
   openGraph: {
     title: "KTU CGPA Calculator – Fast & Accurate GPA Calculator for Kerala Technological University Students",
