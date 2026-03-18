@@ -1,7 +1,7 @@
 export const cgpaCalculatorGuideContent = `
 # How to Use a CGPA Calculator Effectively: A Step-by-Step Guide
 
-In the modern academic landscape, staying informed about your Cumulative Grade Point Average (CGPA) is not just a matter of curiosity—it is a critical part of academic planning. Whether you are aiming for a specific honors tier, applying for scholarships, or simply tracking your growth, an online calculator can save you hours of manual math and potential errors. In this guide, we will show you how to use a [CGPA Calculator](https://cgpahub.com) effectively to manage your studies and predict your future success.
+In the modern academic landscape, staying informed about your Cumulative Grade Point Average (CGPA) is not just a matter of curiosity—it is a critical part of academic planning. Whether you are aiming for a specific honors tier, applying for scholarships, or simply tracking your growth, an online calculator can save you hours of manual math and potential errors. In this guide, we will show you how to use a CGPA Calculator effectively to manage your studies and predict your future success.
 
 ---
 
@@ -10,7 +10,7 @@ In the modern academic landscape, staying informed about your Cumulative Grade P
 A CGPA calculator is a digital tool that allows students to input their credit hours and grades for multiple semesters to determine their overall average. Unlike a simple GPA calculator which looks at a single term, a CGPA calculator provides the "big picture." Some universities have specific credit systems, such as the [KTU B.Tech 2019 Scheme](/ktu-cgpa-calculator), which requires specialized tools for accurate results.
 
 ### Why You Shouldn't Do It Manually
-While the formula for CGPA is straightforward—Total Points divided by Total Credits—it becomes complex as you add more semesters. A single mistake in credit weighting can throw off your entire calculation. Online tools like [CGPA Hub](https://cgpahub.com) or our [GPA Calculator](/) ensure 100% accuracy. If you're confused about the terminology, our [GPA vs CGPA guide](/blog/understanding-gpa-vs-cgpa) explains everything.
+While the formula for CGPA is straightforward—Total Points divided by Total Credits—it becomes complex as you add more semesters. A single mistake in credit weighting can throw off your entire calculation. If you're confused about the terminology, our [GPA vs CGPA guide](/blog/understanding-gpa-vs-cgpa) explains everything.
 
 ---
 

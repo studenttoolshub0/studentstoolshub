@@ -111,7 +111,7 @@ Instead of just memorizing a fact, ask yourself *why* it is true and *how* it re
 Your brain is a biological organ, and it needs the right conditions to function.
 - **Sleep:** Cognitive function drops sharply without 7-9 hours of sleep. Pulling all-nighters actually decreases your exam performance.
 - **Environment:** Find a dedicated "deep work" space where you are never interrupted.
-- **Tools:** Students today also benefit from modern technology that improves productivity and learning efficiency. Along with using a [CGPA calculator](https://cgpahub.com) or [our CGPA Calculator Guide](/blog/cgpa-calculator-guide) to track your academic progress, you can also explore useful [AI tools that help students and freshers](https://growithmoney.com/ai-tools-help-students-and-freshers/) improve research, writing, and study planning.
+- **Tools:** Students today also benefit from modern technology that improves productivity and learning efficiency. Along with using  [our CGPA Calculator Guide](/blog/cgpa-calculator-guide) to track your academic progress, you can also explore useful [AI tools that help students and freshers](https://growithmoney.com/ai-tools-help-students-and-freshers/) improve research, writing, and study planning.
 
 ## Conclusion
 
