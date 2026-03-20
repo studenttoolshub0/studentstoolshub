@@ -62,7 +62,7 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
             .replace(/\*(.*?)\*/g, '<em class="italic">$1</em>')
             .replace(/\[(.*?)\]\((.*?)\)/g, (match, label, href) => {
                 const isExternal = /^https?:\/\//.test(href);
-                const isDoFollow = !isExternal || href.includes('cgpahub.com') || href.includes('https://subsidypk.com') || href.includes('https://www.gyaanpost.com/education') || href.includes('https://growithmoney.com') || href.includes('quickcareer.in') || href.includes('topfinanceoutreach.com');
+                const isDoFollow = !isExternal || href.includes('cgpahub.com') || href.includes('https://subsidypk.com') || href.includes('https://www.gyaanpost.com/education') || href.includes('https://growithmoney.com') || href.includes('quickcareer.in') || href.includes('topfinanceoutreach.com') || href.includes('toptechoutreach.com');
                 const rel = `noopener noreferrer${isDoFollow ? '' : ' nofollow'}`;
                 return `<a href="${href}" class="text-indigo-600 font-semibold hover:underline" target="_blank" rel="${rel}">${label}</a>`;
             });
