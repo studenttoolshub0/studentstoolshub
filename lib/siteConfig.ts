@@ -6,6 +6,7 @@ import { studyTechniquesContent } from "./articles/best-study-techniques-for-uni
 import { timeManagementContent } from "./articles/time-management-for-students";
 import { choosingRightMajorContent } from "./articles/choose-the-right-major";
 import { cgpaCalculatorGuideContent } from "./articles/cgpa-calculator-guide";
+import { fixGamingDeviceIssuesContent } from "./articles/how-to-fix-gaming-device-issues-pc";
 
 export const siteConfig: SiteConfig = {
     name: "StudentToolsHub",
@@ -158,5 +159,17 @@ export const placeholderPosts: BlogPost[] = [
         category: "Tools", readTime: "6 min read",
         tags: ["CGPA Calculator", "Tools", "Academic Planning"],
         content: cgpaCalculatorGuideContent,
+    },
+    {
+        slug: "how-to-fix-gaming-device-issues-pc",
+        title: "How Students Can Fix Common Gaming Device Issues on PC (Beginner-Friendly Guide)",
+        description: "Struggling with a controller not connecting or bad audio? Learn how to fix common gaming device issues on PC with this student-friendly troubleshooting guide.",
+        date: "2026-03-20", 
+        author: "StudentToolsHub Team",
+        category: "Gaming Tools", 
+        readTime: "12 min read",
+        tags: ["Gaming", "PC", "Troubleshooting", "Students"],
+        content: fixGamingDeviceIssuesContent,
+        featured: true,
     },
 ];
