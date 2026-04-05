@@ -73,7 +73,7 @@ By doing this, you know exactly what grade you need in each specific subject to 
 
 Don't just calculate and close the tab.
 - **Export to PDF/Excel:** Many advanced calculators allow you to save your data.
-- **Bookmark the Tool:** Keep [StudentToolsHub](https://studenttoolshub.site) or CGPA Hub in your favorites bar so you can update your stats as soon as midterms are over.
+- **Bookmark the Tool:** Keep [StudentToolsHub](https://studenttoolshub.site), [AcadTools](https://acadtools.online/), or CGPA Hub in your favorites bar so you can update your stats as soon as midterms are over.
 
 ## Conclusion
 

@@ -82,9 +82,9 @@ export default async function BlogPostPage({ params }: Props) {
                         )}
                     </div>
 
-                    <h1 className="text-2xl sm:text-3xl lg:text-5xl font-extrabold text-white leading-tight mb-4 sm:mb-5">
+                    <h2 className="text-2xl sm:text-3xl lg:text-5xl font-extrabold text-white leading-tight mb-4 sm:mb-5">
                         {post.title}
-                    </h1>
+                    </h2>
                     <p className="text-base sm:text-lg text-slate-300 leading-relaxed mb-6 sm:mb-8 max-w-2xl">{post.description}</p>
 
                     {/* Meta pills */}

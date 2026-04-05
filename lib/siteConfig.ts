@@ -1,4 +1,4 @@
-import { GraduationCap, Layout, PenTool, Search, Library, Laptop, MessageSquare, StickyNote } from "lucide-react";
+import { GraduationCap, Layout, PenTool, Search, Library, Laptop, MessageSquare, StickyNote,CalculatorIcon } from "lucide-react";
 import type { SiteConfig, BlogPost, NavItem, Tool } from "@/types";
 import { howToImproveYourCgpaContent } from "./articles/how-to-improve-your-cgpa";
 import { gpaVsCgpaContent } from "./articles/understanding-gpa-vs-cgpa";
@@ -51,7 +51,16 @@ export const academicTools: Tool[] = [
         icon: Layout,
         external: true,
         nofollow: true,
+    },    
+    {
+        name: "Fast tools wow",
+        description: "All tools hub and all in one solution for students",
+        href: "https://fasttoolswow.com/",
+        icon: CalculatorIcon,
+        external: true,
+        nofollow: true,
     },
+
     {
         name: "Grammarly",
         description: "AI-powered writing assistant that helps you eliminate grammar errors and improve the tone of your research papers.",
