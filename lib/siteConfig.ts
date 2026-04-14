@@ -7,6 +7,9 @@ import { timeManagementContent } from "./articles/time-management-for-students";
 import { choosingRightMajorContent } from "./articles/choose-the-right-major";
 import { cgpaCalculatorGuideContent } from "./articles/cgpa-calculator-guide";
 import { fixGamingDeviceIssuesContent } from "./articles/how-to-fix-gaming-device-issues-pc";
+import { futureOfEducationContent } from "./articles/future-of-education";
+import { essentialStudentToolsContent } from "./articles/essential-student-tools";
+import { academicPerformanceSkillsContent } from "./articles/academic-performance-skills";
 
 export const siteConfig: SiteConfig = {
     name: "StudentToolsHub",
@@ -179,6 +182,42 @@ export const placeholderPosts: BlogPost[] = [
         readTime: "12 min read",
         tags: ["Gaming", "PC", "Troubleshooting", "Students"],
         content: fixGamingDeviceIssuesContent,
+        featured: true,
+    },
+    {
+        slug: "technology-shaping-future-education",
+        title: "The Digital Revolution: How Technology is Shaping the Future of Education",
+        description: "Explore how digital advancements are transforming the educational landscape, from personalized learning to immersive VR experiences.",
+        date: "2026-04-14",
+        author: "StudentToolsHub Team",
+        category: "Education Technology",
+        readTime: "7 min read",
+        tags: ["EdTech", "Future of Education", "Digital Learning"],
+        content: futureOfEducationContent,
+        featured: true,
+    },
+    {
+        slug: "essential-digital-tools-for-students",
+        title: "Maximizing Academic Efficiency: Essential Digital Tools for Modern Students",
+        description: "Discover the must-have digital resources and tools that can help you streamline your study workflow and boost your productivity.",
+        date: "2026-04-14",
+        author: "StudentToolsHub Team",
+        category: "Productivity",
+        readTime: "6 min read",
+        tags: ["Student Tools", "Academic Success", "Efficiency"],
+        content: essentialStudentToolsContent,
+        featured: true,
+    },
+    {
+        slug: "tracking-academic-performance-data-science",
+        title: "Data-Driven Success: Tracking Performance and Mastering New Skills",
+        description: "Learn how to use data to track your academic progress and why mastering data science skills like Python is a game-changer for your career.",
+        date: "2026-04-14",
+        author: "StudentToolsHub Team",
+        category: "Academic Performance",
+        readTime: "8 min read",
+        tags: ["Data Science", "Performance Tracking", "Python"],
+        content: academicPerformanceSkillsContent,
         featured: true,
     },
 ];
