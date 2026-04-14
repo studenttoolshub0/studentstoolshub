@@ -1,7 +1,7 @@
 export const academicPerformanceSkillsContent = `
 # Data-Driven Success: Tracking Performance and Mastering New Skills
 
-In the modern world, data is the driving force behind success in almost every field—and academia is no exception. Students who take a data-driven approach to their studies are often better positioned to excel. By understanding various **[ways to track and improve academic performance](https://www.appclonescript.com/how-to-track-and-improve-academic-performance/)**, you can move beyond guesswork and start making strategic decisions about your education.
+In the modern world, data is the driving force behind success in almost every field—and academia is no exception. Students who take a data-driven approach to their studies are often better positioned to excel. By understanding various **[ways to track and improve academic performance](https://www.appclonescript.com/how-to-track-and-improve-your-academic-performance/)**, you can move beyond guesswork and start making strategic decisions about your education.
 
 ## The Power of Academic Tracking
 
