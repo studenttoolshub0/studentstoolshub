@@ -62,7 +62,20 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
             .replace(/\*(.*?)\*/g, '<em class="italic">$1</em>')
             .replace(/\[(.*?)\]\((.*?)\)/g, (match, label, href) => {
                 const isExternal = /^https?:\/\//.test(href);
-                const isDoFollow = !isExternal || href.includes('cgpahub.com') || href.includes('https://subsidypk.com') || href.includes('https://www.gyaanpost.com/education') || href.includes('https://growithmoney.com') || href.includes('quickcareer.in') || href.includes('topfinanceoutreach.com') || href.includes('toptechoutreach.com') || href.includes('acadtools.online');
+                const isDoFollow = !isExternal || 
+                    href.includes('cgpahub.com') || 
+                    href.includes('subsidypk.com') || 
+                    href.includes('gyaanpost.com') || 
+                    href.includes('growithmoney.com') || 
+                    href.includes('quickcareer.in') || 
+                    href.includes('topfinanceoutreach.com') || 
+                    href.includes('toptechoutreach.com') || 
+                    href.includes('acadtools.online') ||
+                    href.includes('theinscribermag.com') ||
+                    href.includes('appclonescript.com') ||
+                    href.includes('timebusinessnews.com') ||
+                    href.includes('thevoyagerschool.com') ||
+                    href.includes('socialpakora.com');
                 const rel = `noopener noreferrer${isDoFollow ? '' : ' nofollow'}`;
                 return `<a href="${href}" class="text-indigo-600 font-semibold hover:underline" target="_blank" rel="${rel}">${label}</a>`;
             });
