@@ -32,11 +32,16 @@ export default function Footer() {
                         </a>
                     </div>
 
-                    {/* Navigation */}
+                    {/* Quick Links */}
                     <div>
-                        <h3 className="text-xs font-semibold text-white uppercase tracking-widest mb-4">Navigation</h3>
+                        <h3 className="text-xs font-semibold text-white uppercase tracking-widest mb-4">Quick Links</h3>
                         <ul className="space-y-2.5">
-                            {navItems.map((item) => (
+                            {[
+                                { label: "Home", href: "/" },
+                                { label: "KTU Calculator", href: "/ktu-cgpa-calculator" },
+                                { label: "Blog & Guides", href: "/blog" },
+                                { label: "Feed", href: "/feed.xml", rss: true },
+                            ].map((item) => (
                                 <li key={item.href}>
                                     <Link href={item.href}
                                         className="flex items-center gap-1.5 text-sm text-slate-400 hover:text-indigo-400 transition-colors group">
@@ -48,31 +53,44 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Resources */}
+                    {/* Company/Support */}
                     <div>
-                        <h3 className="text-xs font-semibold text-white uppercase tracking-widest mb-4">Resources</h3>
+                        <h3 className="text-xs font-semibold text-white uppercase tracking-widest mb-4">Support</h3>
                         <ul className="space-y-2.5">
                             {[
-                                { label: "KTU CGPA Calculator", href: "/ktu-cgpa-calculator", internal: true },
-                                { label: "Privacy Policy", href: "/privacy-policy", internal: true },
-                                { label: "Blog & Guides", href: "/blog", internal: true },
-                            ].map(({ label, href, internal }) => (
-                                <li key={label}>
-                                    {internal ? (
-                                        <Link href={href} className="flex items-center gap-1.5 text-sm text-slate-400 hover:text-indigo-400 transition-colors group">
-                                            <ArrowRight size={11} className="opacity-0 group-hover:opacity-100 transition-opacity text-indigo-400" />
-                                            {label}
-                                        </Link>
-                                    ) : null}
+                                { label: "About Us", href: "/about" },
+                                { label: "Contact Us", href: "/contact" },
+                                { label: "Write for Us", href: "/write-for-us" },
+                            ].map((item) => (
+                                <li key={item.href}>
+                                    <Link href={item.href}
+                                        className="flex items-center gap-1.5 text-sm text-slate-400 hover:text-indigo-400 transition-colors group">
+                                        <ArrowRight size={11} className="opacity-0 group-hover:opacity-100 transition-opacity text-indigo-400" />
+                                        {item.label}
+                                    </Link>
                                 </li>
                             ))}
-        
-                            <li>
-                                <a href="/feed.xml"
-                                    className="flex items-center gap-1.5 text-sm text-slate-400 hover:text-orange-400 transition-colors">
-                                    <Rss size={12} /> RSS Feed
-                                </a>
-                            </li>
+                        </ul>
+                    </div>
+
+                    {/* Legal */}
+                    <div>
+                        <h3 className="text-xs font-semibold text-white uppercase tracking-widest mb-4">Legal</h3>
+                        <ul className="space-y-2.5">
+                            {[
+                                { label: "Privacy Policy", href: "/privacy-policy" },
+                                { label: "Terms & Conditions", href: "/terms-conditions" },
+                                { label: "DMCA Policy", href: "/dmca" },
+                                { label: "Disclaimer", href: "/disclaimer" },
+                            ].map((item) => (
+                                <li key={item.href}>
+                                    <Link href={item.href}
+                                        className="flex items-center gap-1.5 text-sm text-slate-400 hover:text-indigo-400 transition-colors group">
+                                        <ArrowRight size={11} className="opacity-0 group-hover:opacity-100 transition-opacity text-indigo-400" />
+                                        {item.label}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>
