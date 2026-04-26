@@ -31,7 +31,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.6,
         },
         {
+            url: `${siteConfig.url}/ktu-cgpa-calculator`,
+            lastModified: new Date(),
+            changeFrequency: "monthly",
+            priority: 0.9,
+        },
+        {
             url: `${siteConfig.url}/privacy-policy`,
+            lastModified: new Date(),
+            changeFrequency: "yearly",
+            priority: 0.3,
+        },
+        {
+            url: `${siteConfig.url}/dmca`,
+            lastModified: new Date(),
+            changeFrequency: "yearly",
+            priority: 0.3,
+        },
+        {
+            url: `${siteConfig.url}/disclaimer`,
+            lastModified: new Date(),
+            changeFrequency: "yearly",
+            priority: 0.3,
+        },
+        {
+            url: `${siteConfig.url}/write-for-us`,
+            lastModified: new Date(),
+            changeFrequency: "monthly",
+            priority: 0.6,
+        },
+        {
+            url: `${siteConfig.url}/terms-conditions`,
             lastModified: new Date(),
             changeFrequency: "yearly",
             priority: 0.3,
