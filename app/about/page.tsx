@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Target, Lightbulb, BookOpen, Telescope, Search, Heart, MessageSquare, Rocket, ArrowRight, ShieldCheck, Zap, Globe, Users, Award, Briefcase } from "lucide-react";
+import { Target, Lightbulb, BookOpen, Telescope, Search, Heart, MessageSquare, Rocket, ArrowRight, ShieldCheck, Zap, Globe, Users, Award, Briefcase, Calculator } from "lucide-react";
 import JsonLd from "@/components/JsonLd";
 import { siteConfig } from "@/lib/siteConfig";
 
