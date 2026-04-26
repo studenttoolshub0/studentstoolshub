@@ -33,7 +33,7 @@ const orgSchema = {
 };
 
 const stats = [
-  { icon: FileText, label: "Articles", value: "5+", gradient: "from-indigo-500 to-violet-500" },
+  { icon: FileText, label: "Articles", value: "10+", gradient: "from-indigo-500 to-violet-500" },
   { icon: Zap, label: "Tools", value: "10+", gradient: "from-violet-500 to-cyan-500" },
   { icon: Users, label: "Readers", value: "1K+", gradient: "from-cyan-500 to-emerald-500" },
 ];
