@@ -19,13 +19,13 @@ While some regions use 5.0, 7.0, or even 10.0 scales, the most common system glo
 - **A** = 4.0 Grade Points
 - **B** = 3.0 Grade Points
 - **C** = 2.0 Grade Points
-- **D** = 1.0 Grade Point
+- **D** = 1.0 Grade Points
 - **F** = 0.0 Grade Points
 
 Your GPA is calculated by multiplying the grade point value of each course by its credit hours, summing those totals, and then dividing by the total number of credit hours attempted in that semester.
 
 **The Formula:**
-`GPA = (Total Grade Points Earned in Semester) / (Total Credit Hours in Semester)`
+\`GPA = (Total Grade Points Earned in Semester) / (Total Credit Hours in Semester)\`
 
 For example, if you are a Bangladeshi student preparing for higher education, you may already be familiar with these concepts through tools like the [SSC GPA CALCULATOR](https://cgpahub.com/tools/ssc-gpa-calculator) and the [HSC GPA CALCULATOR](https://cgpahub.com/tools/hsc-gpa-calculator), which help students translate their secondary school grades into a standardized format.
 
@@ -42,7 +42,7 @@ CGPA is the ultimate measure of an academic "marathon." While a student might ha
 A common mistake students make is simply averaging their semester GPAs to find their CGPA. This is mathematically incorrect because semesters often have different total credit loads. 
 
 **The Correct Formula:**
-`CGPA = (Total Grade Points Earned Across ALL Semesters) / (Total Credit Hours Taken Across ALL Semesters)`
+\`CGPA = (Total Grade Points Earned Across ALL Semesters) / (Total Credit Hours Taken Across ALL Semesters)\`
 
 This means that a heavy semester with 21 credits will have a much more significant impact on your final CGPA than a lighter semester with only 12 credits. You can use a dedicated [Cgpa Calculator](https://cgpahub.com) for quick and accurate calculations that take these weightings into account.
 
