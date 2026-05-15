@@ -57,12 +57,12 @@ export const academicTools: Tool[] = [
         nofollow: true,
     },    
     {
-        name: "Fast tools wow",
-        description: "All tools hub and all in one solution for students",
+        name: "fast free tools wow",
+        description: "A powerful all-in-one hub of fast, free online tools for students — from text utilities to calculators and more.",
         href: "https://fasttoolswow.com/",
         icon: CalculatorIcon,
         external: true,
-        nofollow: true,
+        nofollow: false,
     },
 
     {
