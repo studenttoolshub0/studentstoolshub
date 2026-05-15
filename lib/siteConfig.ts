@@ -6,7 +6,7 @@ import { studyTechniquesContent } from "./articles/best-study-techniques-for-uni
 import { timeManagementContent } from "./articles/time-management-for-students";
 import { choosingRightMajorContent } from "./articles/choose-the-right-major";
 import { cgpaCalculatorGuideContent } from "./articles/cgpa-calculator-guide";
-import { fixGamingDeviceIssuesContent } from "./articles/how-to-fix-gaming-device-issues-pc";
+import { fixGamingDeviceIssuesContent } from "./articles/fix-gaming-device-issues-pc";
 import { futureOfEducationContent } from "./articles/future-of-education";
 import { essentialStudentToolsContent } from "./articles/essential-student-tools";
 import { academicPerformanceSkillsContent } from "./articles/academic-performance-skills";
