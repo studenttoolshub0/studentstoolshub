@@ -174,7 +174,7 @@ export const placeholderPosts: BlogPost[] = [
         content: cgpaCalculatorGuideContent,
     },
     {
-        slug: "troubleshoot-pc-gaming-peripherals",
+        slug: "fix-gaming-device-issues-pc",
         title: "How to Fix Common Gaming Device Issues on PC: The Student Tech Guide",
         description: "Controller not connecting? Audio crackling? Fix your gaming hardware issues with these pro troubleshooting steps.",
         date: "2026-03-03", 
